@@ -204,20 +204,9 @@
   padding-block: 2px;
 }
 
-.caseStudyLink::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--amber-500);
-  transition: width var(--dur-hover) var(--ease-out);
-}
-
-.caseStudyLink:hover::after,
-.caseStudyLink:focus-visible::after {
-  width: 100%;
+.caseStudyLink:hover,
+.caseStudyLink:focus-visible {
+  font-weight: 700;
 }
 
 .linkArrow {

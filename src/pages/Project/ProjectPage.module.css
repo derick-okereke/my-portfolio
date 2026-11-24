@@ -153,6 +153,10 @@
   display: block;
 }
 
+.onetaxCover {
+  aspect-ratio: 5 / 3;
+}
+
 .onetaxCoverGraphic {
   border-radius: 20px;
   box-shadow: var(--shadow-raised);
@@ -199,8 +203,7 @@
   text-decoration: none;
   font-weight: 700;
   color: #14231B;
-  border-left: 2px solid #D9922B;
-  padding-left: 12px;
+  padding-left: 14px;
 }
 
 /* ── Main Content Sections ── */
@@ -364,7 +367,7 @@
 
 .nextProjectLink {
   font-family: var(--font-head);
-  font-size: 48px;
+  font-size: 33px;
   font-weight: 800;
   color: #14231B;
   text-decoration: none;

@@ -48,7 +48,12 @@ export default function Nav() {
       }
     }
     const onOutside = (e) => {
-      if (menuOpen && menuRef.current && !menuRef.current.contains(e.target)) {
+      if (
+        menuOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(e.target) &&
+        !toggleRef.current?.contains(e.target)
+      ) {
         setMenuOpen(false)
       }
     }

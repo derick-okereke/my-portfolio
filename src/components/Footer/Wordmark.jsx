@@ -48,8 +48,8 @@ export default function Wordmark({ footerRef }) {
       if (!rafId.current) {
         rafId.current = requestAnimationFrame(() => {
           if (wordmark && pendingX !== null) {
-            wordmark.style.setProperty('--x', `${pendingX}px`)
-            wordmark.style.setProperty('--y', `${pendingY}px`)
+            wordmark.style.setProperty('--glaze-x', `${pendingX}px`)
+            wordmark.style.setProperty('--glaze-y', `${pendingY}px`)
             wordmark.style.setProperty('--glow-opacity', '1')
           }
           rafId.current = null

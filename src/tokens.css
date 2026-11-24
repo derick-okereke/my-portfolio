@@ -211,25 +211,14 @@ h1, h2, h3, h4, h5, h6 {
   border: 0;
 }
 
-/* Amber underline link */
+/* Emphasized text link */
 .link-amber {
-  position: relative;
   display: inline-block;
   color: var(--ink-900);
 }
-.link-amber::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--amber-500);
-  transition: width var(--dur-hover) var(--ease-out);
-}
-.link-amber:hover::after,
-.link-amber:focus-visible::after {
-  width: 100%;
+.link-amber:hover,
+.link-amber:focus-visible {
+  font-weight: 700;
 }
 
 /* =============================================================

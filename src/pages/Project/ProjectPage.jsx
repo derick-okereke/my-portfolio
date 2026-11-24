@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import LifecycleStrip from '../../components/LifecycleStrip/LifecycleStrip'
 import FlowDiagram from '../../components/FlowDiagram/FlowDiagram'
-import OneTaxCardGraphic from '../../components/WorkCards/OneTaxCardGraphic'
 import Placeholder from '../../components/Placeholder/Placeholder'
 import styles from './ProjectPage.module.css'
 
 export default function ProjectPage({ slug, data }) {
   const [activeSection, setActiveSection] = useState('problem')
+  const coverImage = slug === 'onetax-pipeline'
+    ? '/images/onetax-pipeline/onetax-card.webp'
+    : data.desktopCover
 
   useEffect(() => {
     document.title = `${data.title} — Derick Okereke`
@@ -87,20 +89,16 @@ export default function ProjectPage({ slug, data }) {
 
         {/* Cover Panel (gradient #F7F1E3 to #F0E7D2, radius 32px, layered shadow) */}
         <div className={styles.coverPanel}>
-          {data.desktopCover ? (
+          {coverImage ? (
             <img
-              src={data.desktopCover}
+              src={coverImage}
               alt={`${data.title} desktop preview`}
-              className={styles.coverScreenshot}
+              className={`${styles.coverScreenshot} ${slug === 'onetax-pipeline' ? styles.onetaxCover : ''}`}
               width={1904}
               height={930}
               loading="eager"
             />
-          ) : (
-            <div className={styles.onetaxCoverGraphic}>
-              <OneTaxCardGraphic />
-            </div>
-          )}
+          ) : null}
         </div>
       </div>
 

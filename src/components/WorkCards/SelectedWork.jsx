@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import LifecycleStrip from '../LifecycleStrip/LifecycleStrip'
-import OneTaxCardGraphic from './OneTaxCardGraphic'
 import Placeholder from '../Placeholder/Placeholder'
 import { homeProjectOrder } from '../../data/projects'
 import styles from './SelectedWork.module.css'
@@ -23,6 +22,8 @@ export default function SelectedWork() {
             const desktopImage =
               project.slug === 'author-bookstore'
                 ? '/images/author-bookstore/desktop-1.webp'
+                : project.slug === 'onetax-pipeline'
+                ? '/images/onetax-pipeline/onetax-card.webp'
                 : project.slug === 'cashpod'
                 ? '/images/cashpod/desktop-1.webp'
                 : project.slug === 'peekytoe'
@@ -37,21 +38,15 @@ export default function SelectedWork() {
                   aria-label={`${project.title} — Read case study`}
                 >
                   {/* Top Screenshot or Flow Graphic (rounded 20px) */}
-                  <div className={styles.imageFrame}>
-                    {isOneTax ? (
-                      <div className={styles.scalableMedia}>
-                        <OneTaxCardGraphic />
-                      </div>
-                    ) : (
-                      <img
-                        src={desktopImage}
-                        alt={`${project.title} desktop preview`}
-                        width={1904}
-                        height={930}
-                        className={styles.screenshotImg}
-                        loading="lazy"
-                      />
-                    )}
+                  <div className={`${styles.imageFrame} ${isOneTax ? styles.onetaxImageFrame : ''}`}>
+                    <img
+                      src={desktopImage}
+                      alt={`${project.title} desktop preview`}
+                      width={1904}
+                      height={930}
+                      className={styles.screenshotImg}
+                      loading="lazy"
+                    />
                   </div>
 
                   {/* Card Body */}
@@ -93,14 +88,23 @@ export default function SelectedWork() {
             <div className={styles.moreRight}>
               <h4 className={styles.partnerTitle}>Partner Picker</h4>
               <p className={styles.partnerDesc}>
-                An interactive web app that solves an accountability community's grouping problem,
-                using JavaScript and Google Sheets as a lightweight backend.{' '}
-                <Placeholder text="[PLACEHOLDER: link, if available]" />
+                Partner picker was my very first web app. The first time I thought through a product people where going to use. An interactive web app that solves an accountability community's grouping problem, using JavaScript and Google Sheets as a lightweight backend.
               </p>
             </div>
           </div>
 
           <div className="faded-hairline" aria-hidden="true" />
+          <div className={styles.moreRow}>
+            <div className={styles.moreLeft}>
+              <span className={styles.moreCaps}></span>
+            </div>
+            <div className={styles.moreRight}>
+              <h4 className={styles.partnerTitle}>MyEcoAfrica</h4>
+              <p className={styles.partnerDesc}>
+                Since August of 2026, I have worked with MyEcoAfrica as the Lead Nationwide Project Manager overseeing the Global Energy and Sustainablity Leadership program GELSP where we've been taking sustainablility responibility and leadership knowledge to young students across Nigerian schools. I have contributed to and overseen outreach strategies, managed large state-wide teams, and saw to it that projects reached in-scope completion.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

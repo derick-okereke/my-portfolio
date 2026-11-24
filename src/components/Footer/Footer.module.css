@@ -27,6 +27,18 @@
   line-height: 1.5;
 }
 
+@property --glaze-x {
+  syntax: '<length-percentage>';
+  inherits: true;
+  initial-value: -20%;
+}
+
+@property --glaze-y {
+  syntax: '<length-percentage>';
+  inherits: true;
+  initial-value: 50%;
+}
+
 .links {
   display: flex;
   align-items: center;
@@ -148,12 +160,65 @@
   pointer-events: none;
   opacity: var(--glow-opacity, 0);
   transition: opacity 300ms ease;
-  mask-image: radial-gradient(circle 110px at var(--x, -999px) var(--y, -999px), black 0%, transparent 100%);
-  -webkit-mask-image: radial-gradient(circle 110px at var(--x, -999px) var(--y, -999px), black 0%, transparent 100%);
+  mask-image: radial-gradient(circle 110px at var(--glaze-x) var(--glaze-y), black 0%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle 110px at var(--glaze-x) var(--glaze-y), black 0%, transparent 100%);
 }
 
 /* ── Touch Devices & Reduced Motion: Disable glow & entrance rise, scale to full width static ── */
-@media (hover: none), (prefers-reduced-motion: reduce) {
+@keyframes mobileWordmarkGlaze {
+  0%,
+  100% {
+    --glaze-x: -20%;
+    --glaze-y: 55%;
+    opacity: 0;
+  }
+  15%,
+  65% {
+    opacity: 0.7;
+  }
+  55% {
+    --glaze-x: 120%;
+    --glaze-y: 45%;
+    opacity: 0.7;
+  }
+  80% {
+    --glaze-x: 120%;
+    --glaze-y: 45%;
+    opacity: 0;
+  }
+}
+
+@media (max-width: 680px) {
+  .copy {
+    width: 100%;
+    text-align: center;
+    font-size: 0.8125rem;
+  }
+
+  .wordmarkCrop {
+    height: clamp(4.5rem, 20vw, 5.5rem);
+  }
+
+  .wordmark {
+    font-size: clamp(8rem, 36vw, 11rem);
+  }
+}
+
+@media (hover: none) and (max-width: 680px) {
+  .wordmark {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .wordmarkGlow {
+    display: block;
+    color: rgba(47, 122, 85, 0.44);
+    animation: mobileWordmarkGlaze 6s var(--ease-in-out) infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
   .wordmark {
     opacity: 1 !important;
     transform: none !important;
@@ -162,10 +227,9 @@
 
   .wordmarkGlow {
     display: none !important;
+    animation: none;
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
   .link,
   .arrow {
     transition: none !important;

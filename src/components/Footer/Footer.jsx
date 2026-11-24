@@ -21,7 +21,7 @@ export default function Footer({ showLinks: showLinksProp }) {
       <div className={`${styles.inner} wrap`}>
         {/* Left: exact copy */}
         <p className={styles.copy}>
-          Made with intention © 2026 · Derick Okereke
+          Made with 🌹 & intention · © 2026 · Derick Okereke
         </p>
 
         {/* Right: plain text links with arrows */}

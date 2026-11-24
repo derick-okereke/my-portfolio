@@ -155,22 +155,9 @@
   text-decoration: none;
   transition: color var(--dur-hover) var(--ease-out);
 }
-.cvLink::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--amber-500);
-  transition: width var(--dur-hover) var(--ease-out);
-}
 .cvLink:hover {
   color: var(--forest-700);
-}
-.cvLink:hover::after,
-.cvLink:focus-visible::after {
-  width: 100%;
+  font-weight: 700;
 }
 
 .arrow {
@@ -247,6 +234,12 @@
 
   .primaryBtn {
     width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .headlineRight {
+    font-size: clamp(2rem, 6.6vw, 2.8rem);
   }
 }
 
