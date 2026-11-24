@@ -57,7 +57,7 @@
 
 .stageLabel {
   text-decoration: none;
-  color: #1B4D36;
+  color: #070707;
   padding-bottom: 4px;
   transition: opacity 400ms var(--ease-out);
 }
@@ -89,7 +89,7 @@
 .fullFill {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #1B4D36 0%, #2F7A55 65%, #D9922B 100%);
+  background: linear-gradient(90deg, #070707 0%, #2F7A55 65%, #D9922B 100%);
   border-radius: 4px;
   transition: width var(--dur-strip) var(--ease-out);
 }

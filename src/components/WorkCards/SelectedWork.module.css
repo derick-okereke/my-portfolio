@@ -137,7 +137,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.3em;
-  background: var(--pill-bg, #F0E7D2);
+  background: #FFFDF8;
   color: black;
   font-family: var(--font-body);
   font-size: 0.85rem;
@@ -157,7 +157,8 @@
 }
 
 .card:hover .pillButton {
-  background: color-mix(in srgb, var(--pill-bg, #F0E7D2) 80%, var(--amber-500) 20%);
+  background: var(--ink-900);
+  color: #F0E7D2;
 }
 
 .card:hover .chevron {
