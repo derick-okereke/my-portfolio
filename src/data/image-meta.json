@@ -1,0 +1,67 @@
+{
+  "author-bookstore/desktop-1.webp": {
+    "width": 1904,
+    "height": 930,
+    "size": 72236
+  },
+  "author-bookstore/mobile-1.webp": {
+    "width": 1080,
+    "height": 2177,
+    "size": 162438
+  },
+  "author-bookstore/mobile-2.webp": {
+    "width": 1080,
+    "height": 2327,
+    "size": 135506
+  },
+  "cashpod/desktop-1.webp": {
+    "width": 1904,
+    "height": 928,
+    "size": 77002
+  },
+  "cashpod/mobile-1.webp": {
+    "width": 1080,
+    "height": 2135,
+    "size": 95970
+  },
+  "cashpod/mobile-2.webp": {
+    "width": 1080,
+    "height": 2289,
+    "size": 88310
+  },
+  "cashpod/mobile-3.webp": {
+    "width": 1079,
+    "height": 2178,
+    "size": 85688
+  },
+  "cashpod/mobile-4.webp": {
+    "width": 1080,
+    "height": 2178,
+    "size": 54988
+  },
+  "peekytoe/desktop-1.webp": {
+    "width": 1904,
+    "height": 930,
+    "size": 74254
+  },
+  "peekytoe/mobile-1.webp": {
+    "width": 1080,
+    "height": 2170,
+    "size": 88108
+  },
+  "peekytoe/mobile-2.webp": {
+    "width": 1080,
+    "height": 2400,
+    "size": 94202
+  },
+  "about/photo-1.webp": {
+    "width": 1079,
+    "height": 1075,
+    "size": 78616
+  },
+  "about/photo-2.webp": {
+    "width": 1200,
+    "height": 1800,
+    "size": 140700
+  }
+}

@@ -1,0 +1,249 @@
+/* SelectedWork.module.css — Premium 2-Column Redesign */
+
+.section {
+  padding-block: var(--s-12) var(--s-16);
+  background: var(--cream-50);
+}
+
+.headingWrap {
+  text-align: center;
+  margin-bottom: var(--s-10);
+}
+
+.heading {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: var(--ink-900);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+/* ── 2-Column Grid of 4 Cards ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s-6);
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+.card {
+  background: var(--card-surface, #FFFDF8);
+  border-radius: 23px;
+  box-shadow: var(--shadow-card);
+  border: none;
+  outline: none;
+  transition:
+    transform 350ms var(--ease-out),
+    box-shadow 350ms var(--ease-out);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.cardLink {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── Top Screenshot Frame (aspect-ratio 1904/930 matches desktop screenshots so they never crop) ── */
+.imageFrame {
+  width: 100%;
+  aspect-ratio: 1904 / 930;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--cream-100);
+  margin-bottom: var(--s-4);
+  position: relative;
+}
+
+.screenshotImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 450ms var(--ease-out);
+}
+
+.card:hover .screenshotImg {
+  transform: scale(1.02);
+}
+
+.scalableMedia {
+  width: 100%;
+  height: 100%;
+  transition: transform 450ms var(--ease-out);
+}
+
+.card:hover .scalableMedia {
+  transform: scale(1.03);
+}
+
+/* ── Card Body ── */
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cardTitle {
+  font-family: var(--font-head);
+  font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+  font-weight: 800;
+  color: var(--ink-900);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: var(--s-2);
+}
+
+.cardDesc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ink-600);
+  margin-bottom: var(--s-5);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 3.1em;
+}
+
+/* ── Footer Row: Strip & Pill Button ── */
+.footerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+
+.stripSlot {
+  display: flex;
+  align-items: center;
+}
+
+.pillButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  background: var(--pill-bg, #F0E7D2);
+  color: black;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.45em 1.1em;
+  border-radius: var(--radius-pill, 14px);
+  white-space: nowrap;
+  transition:
+    background-color var(--dur-hover) var(--ease-out),
+    transform var(--dur-press) var(--ease-out);
+}
+
+.chevron {
+  font-size: 1.1em;
+  line-height: 1;
+  transition: transform var(--dur-hover) var(--ease-out);
+}
+
+.card:hover .pillButton {
+  background: color-mix(in srgb, var(--pill-bg, #F0E7D2) 80%, var(--amber-500) 20%);
+}
+
+.card:hover .chevron {
+  transform: translateX(2px);
+}
+
+/* ── More Projects Row between hairlines ── */
+.moreProjectsSection {
+  margin-top: var(--s-12);
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+.moreRow {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: baseline;
+  gap: var(--s-4);
+  padding-block: var(--s-6);
+}
+
+.moreLeft {
+  flex-shrink: 0;
+}
+
+.moreCaps {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--forest-700);
+}
+
+.moreRight {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.partnerTitle {
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--ink-900);
+  letter-spacing: -0.02em;
+}
+
+.partnerDesc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--ink-600);
+  line-height: 1.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 620px;
+  }
+  .moreRow {
+    grid-template-columns: 1fr;
+    gap: var(--s-2);
+  }
+}
+
+@media (max-width: 600px) {
+  .cardLink {
+    padding: 16px;
+  }
+  .footerRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--s-3);
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .card:hover {
+    transform: none;
+  }
+  .card:hover .screenshotImg,
+  .card:hover .scalableMedia {
+    transform: none;
+  }
+}

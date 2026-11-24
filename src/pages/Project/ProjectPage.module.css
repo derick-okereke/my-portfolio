@@ -1,0 +1,509 @@
+/* ProjectPage.module.css — Faithful replication of design export */
+
+.pageWrap {
+  background-color: #FBF7EE;
+  color: #14231B;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-bottom: 64px;
+}
+
+/* ── Top Container with padding ── */
+.topContainer {
+  padding: 8px 64px 0;
+  max-width: 1360px;
+  margin-inline: auto;
+}
+
+.backLink {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: #4F6056;
+  text-decoration: none;
+  margin-bottom: 28px;
+  transition: color var(--dur-hover) var(--ease-out);
+}
+
+.backLink:hover {
+  color: #14231B;
+}
+
+/* ── Eyebrow ── */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #4F6056;
+}
+
+/* ── Header Grid ── */
+.headerGrid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.8fr;
+  gap: 72px;
+  align-items: end;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 88px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #14231B;
+  margin: 14px 0 18px;
+}
+
+.tagline {
+  font-family: var(--font-body);
+  font-size: 22px;
+  line-height: 1.45;
+  color: #4F6056;
+  margin: 0;
+  max-width: 640px;
+}
+
+.headerRight {
+  display: flex;
+  flex-direction: column;
+}
+
+.statusLine {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: #14231B;
+  margin-bottom: 22px;
+}
+
+.visitLiveBtn {
+  display: block;
+  text-align: center;
+  background: #1B4D36;
+  color: #FBF7EE;
+  padding: 15px;
+  border-radius: 14px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 28px;
+  box-shadow: var(--shadow-raised);
+  transition:
+    background-color var(--dur-hover) var(--ease-out),
+    transform var(--dur-press) var(--ease-out);
+}
+
+.visitLiveBtn:hover {
+  background: #2F7A55;
+}
+
+.visitLiveBtn:active {
+  transform: scale(0.98);
+}
+
+.internalBadge {
+  margin-top: 24px;
+  padding: 14px 18px;
+  background: #F0E7D2;
+  border-radius: 14px;
+}
+
+.roleTag {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1B4D36;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.roleLabel {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #14231B;
+  margin: 0;
+}
+
+/* ── Cover Panel (gradient #F7F1E3 to #F0E7D2, radius 32px) ── */
+.coverPanel {
+  background: linear-gradient(180deg, #F7F1E3, #F0E7D2);
+  border-radius: 32px;
+  margin-top: 52px;
+  padding: 56px 72px 64px;
+}
+
+.coverScreenshot {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1904 / 930;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: var(--shadow-raised);
+  display: block;
+}
+
+.onetaxCoverGraphic {
+  border-radius: 20px;
+  box-shadow: var(--shadow-raised);
+  overflow: hidden;
+}
+
+/* ── Content Grid with Sticky Sidebar ── */
+.contentGrid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 72px;
+  padding: 88px 64px 0;
+  max-width: 1360px;
+  margin-inline: auto;
+}
+
+.sidebarSticky {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+}
+
+.tocNav {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  margin-top: 18px;
+}
+
+.tocLink {
+  text-decoration: none;
+  color: #4F6056;
+  padding-left: 14px;
+  transition: color var(--dur-hover) var(--ease-out);
+}
+
+.tocLink:hover {
+  color: #14231B;
+}
+
+.tocActive {
+  text-decoration: none;
+  font-weight: 700;
+  color: #14231B;
+  border-left: 2px solid #D9922B;
+  padding-left: 12px;
+}
+
+/* ── Main Content Sections ── */
+.mainContent {
+  max-width: 780px;
+}
+
+.sectionBlock {
+  margin-bottom: 72px;
+}
+
+.sectionHeading {
+  font-family: var(--font-head);
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #14231B;
+  margin: 0 0 16px;
+}
+
+.bodyParagraph {
+  font-family: var(--font-body);
+  font-size: 19px;
+  line-height: 1.65;
+  color: #14231B;
+  margin: 0 0 44px;
+}
+
+/* ── Key Decisions List ── */
+.decisionsList {
+  max-width: 700px;
+  margin-bottom: 88px;
+}
+
+.decisionRow {
+  display: flex;
+  gap: 18px;
+  padding: 20px 0;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.55;
+  color: #14231B;
+}
+
+.decisionNum {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 700;
+  color: #1B4D36;
+  min-width: 26px;
+}
+
+.decisionText {
+  color: #14231B;
+}
+
+/* ── Alternating "What I built" Rows ── */
+.featuresStack {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.featureRow {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 56px;
+  align-items: center;
+  padding: 36px 0;
+}
+
+.featureRowAlt {
+  grid-template-columns: 340px 1fr;
+}
+
+.featureRowAlt .phoneMockupWrap {
+  order: 1;
+}
+
+.featureRowAlt .featureText {
+  order: 2;
+}
+
+.featureText {
+  display: flex;
+  flex-direction: column;
+}
+
+.featureTitle {
+  font-family: var(--font-head);
+  font-size: 36px;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #14231B;
+  margin: 12px 0 16px;
+}
+
+.featureDesc {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  color: #4F6056;
+  margin: 0;
+  max-width: 420px;
+}
+
+.phoneMockupWrap {
+  justify-self: center;
+}
+
+.phoneMockup {
+  width: 290px;
+  height: auto;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow-raised);
+  background: transparent;
+  transition:
+    transform 350ms var(--ease-out),
+    box-shadow 350ms var(--ease-out);
+}
+
+.phoneMockup:hover {
+  transform: translateY(-6px) rotate(1.5deg);
+  box-shadow: 0 8px 16px rgba(10,22,16,.14), 0 24px 44px -8px rgba(10,22,16,.36), 0 54px 96px -20px rgba(10,22,16,.6);
+}
+
+.phoneImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 18px;
+}
+
+.builtWithNote {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: #4F6056;
+  margin-top: 36px;
+}
+
+.feedbackBlock {
+  margin-top: 32px;
+}
+
+/* ── Next Project Footer ── */
+.nextProjectFooter {
+  padding-inline: 64px;
+  max-width: 1360px;
+  margin-inline: auto;
+  margin-top: 48px;
+}
+
+.nextProjectRow {
+  padding: 32px 0 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nextProjectLink {
+  font-family: var(--font-head);
+  font-size: 48px;
+  font-weight: 800;
+  color: #14231B;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  transition: color var(--dur-hover) var(--ease-out);
+}
+
+.nextProjectLink:hover {
+  color: #1B4D36;
+}
+
+/* ── Phone Responsive Viewport (matching Page-Phone.dc.html) ── */
+@media (max-width: 860px) {
+  .topContainer {
+    padding: 4px 20px 0;
+  }
+
+  .backLink {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .headerGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 54px;
+    margin: 10px 0 12px;
+  }
+
+  .tagline {
+    font-size: 18px;
+    margin: 0 0 26px;
+  }
+
+  .statusLine {
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+
+  .visitLiveBtn {
+    margin-top: 24px;
+  }
+
+  .coverPanel {
+    margin-top: 32px;
+    padding: 22px 16px;
+    border-radius: 24px;
+  }
+
+  .coverScreenshot {
+    height: auto;
+    aspect-ratio: 1904 / 930;
+    object-fit: contain;
+    border-radius: 12px;
+  }
+
+  .contentGrid {
+    display: block;
+    padding: 48px 20px 0;
+  }
+
+  .sidebarSticky {
+    display: none;
+  }
+
+  .sectionHeading {
+    font-size: 30px;
+    margin: 0 0 12px;
+  }
+
+  .bodyParagraph {
+    font-size: 17px;
+    margin: 0 0 44px;
+  }
+
+  .decisionsList {
+    margin-bottom: 48px;
+  }
+
+  .featureRow,
+  .featureRowAlt {
+    display: flex;
+    flex-direction: column;
+    padding: 28px 0;
+    gap: 24px;
+  }
+
+  .featureRowAlt .phoneMockupWrap {
+    order: 2;
+  }
+
+  .featureRowAlt .featureText {
+    order: 1;
+  }
+
+  .featureTitle {
+    font-size: 28px;
+    margin: 10px 0 12px;
+  }
+
+  .featureDesc {
+    font-size: 16px;
+    margin: 0 0 24px;
+    max-width: 100%;
+  }
+
+  .phoneMockup {
+    width: 250px;
+    height: auto;
+    border-radius: 16px;
+  }
+
+  .phoneImg {
+    border-radius: 16px;
+  }
+
+  .nextProjectFooter {
+    padding-inline: 20px;
+    margin-top: 32px;
+  }
+
+  .nextProjectRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 24px 0 48px;
+  }
+
+  .nextProjectLink {
+    font-size: 38px;
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .phoneMockup:hover {
+    transform: none;
+  }
+}

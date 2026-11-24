@@ -1,0 +1,173 @@
+/* Footer.module.css — Shared Footer & Home Giant Wordmark */
+
+.footer {
+  background: var(--cream-50);
+  color: var(--ink-900);
+  padding-top: 0;
+  padding-bottom: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding-block: var(--s-6);
+  flex-wrap: wrap;
+}
+
+.copy {
+  font-family: var(--font-body);
+  font-size: 0.9375rem; /* ~15px */
+  color: #4F6056;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-body);
+  font-size: 0.9375rem; /* ~15px */
+  color: #4F6056;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: color 200ms var(--ease-out);
+}
+
+.arrow {
+  display: inline-block;
+  font-size: 0.9em;
+  transition: transform 200ms var(--ease-out);
+}
+
+.link:hover,
+.link:focus-visible {
+  color: #1B4D36;
+}
+
+.link:hover .arrow,
+.link:focus-visible .arrow {
+  transform: translate(3px, -3px);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--amber-500);
+  outline-offset: 4px;
+}
+
+/* ── Phones: Stacked row with about 20px gap ── */
+@media (max-width: 680px) {
+  .inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding-block: var(--s-5);
+  }
+
+  .links {
+    gap: 20px;
+  }
+}
+
+/* ── PART 3: GIANT WORDMARK WATERMARK (Home Page Only) ── */
+.wordmarkCrop {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  overflow: hidden;
+  height: clamp(5rem, 15vw, 11rem);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  margin-top: var(--s-2);
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.wordmark {
+  position: relative;
+  font-family: var(--font-head);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.8;
+  font-size: clamp(6.2rem, 23.5vw, 18.5rem);
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* Entrance: rises about 40px and fades in over 900ms */
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 900ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  /* Vertical gradient mask: strongest at top, fades to fully transparent toward bottom */
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.45) 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.45) 60%, transparent 100%);
+}
+
+.wordmarkInView {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Pale tint of forest green (about rgba(27,77,54,0.10)) */
+.wordmarkBase {
+  display: block;
+  color: rgba(27, 77, 54, 0.10);
+}
+
+/* Amber cursor glow highlight (~220px across, rgba(217,146,43,0.25)) inside letters only */
+.wordmarkGlow {
+  position: absolute;
+  inset: 0;
+  display: block;
+  color: rgba(217, 146, 43, 0.38);
+  pointer-events: none;
+  opacity: var(--glow-opacity, 0);
+  transition: opacity 300ms ease;
+  mask-image: radial-gradient(circle 110px at var(--x, -999px) var(--y, -999px), black 0%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle 110px at var(--x, -999px) var(--y, -999px), black 0%, transparent 100%);
+}
+
+/* ── Touch Devices & Reduced Motion: Disable glow & entrance rise, scale to full width static ── */
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .wordmark {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .wordmarkGlow {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link,
+  .arrow {
+    transition: none !important;
+  }
+}

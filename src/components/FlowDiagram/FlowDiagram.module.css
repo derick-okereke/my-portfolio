@@ -1,0 +1,93 @@
+/* FlowDiagram.module.css */
+
+.diagramContainer {
+  margin-block: var(--s-6);
+  padding: var(--s-6);
+  background: var(--cream-100);
+  border: 1px solid var(--cream-300);
+  border-radius: var(--radius-md);
+}
+
+.diagramHeading {
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--ink-900);
+  margin-bottom: var(--s-4);
+  letter-spacing: -0.02em;
+}
+
+.flowGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-3);
+  position: relative;
+}
+
+.flowCard {
+  background: #ffffff;
+  border: 1px solid var(--cream-300);
+  border-radius: var(--radius-sm);
+  padding: var(--s-3);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform var(--dur-hover) var(--ease-out), box-shadow var(--dur-hover) var(--ease-out);
+}
+
+.flowCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px -6px rgba(11, 32, 24, 0.08);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--s-2);
+}
+
+.stepNum {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--amber-500);
+  letter-spacing: 0.08em;
+}
+
+.iconWrap {
+  color: var(--forest-700);
+  display: flex;
+  align-items: center;
+}
+
+.stepTitle {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--ink-900);
+  margin-bottom: var(--s-1);
+}
+
+.stepDesc {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--ink-600);
+  line-height: 1.5;
+}
+
+.arrowConnector {
+  display: none; /* Desktop grid uses clean linear sequence */
+}
+
+@media (max-width: 900px) {
+  .flowGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .flowGrid {
+    grid-template-columns: 1fr;
+  }
+}

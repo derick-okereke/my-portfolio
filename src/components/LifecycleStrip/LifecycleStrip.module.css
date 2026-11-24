@@ -1,0 +1,108 @@
+/* LifecycleStrip.module.css — Taste-audited, zero-glow editorial track */
+
+/* ── COMPACT VARIANT (Cards on Home Page) ── */
+.compactContainer {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.compactTrack {
+  width: 140px;
+  height: 3px;
+  background-color: #E7DEC8;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.compactFill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #1B4D36 0%, #2F7A55 65%, #D9922B 100%);
+  border-radius: 4px;
+  transition: width var(--dur-strip) var(--ease-out);
+}
+
+.inView .compactFill {
+  width: var(--target-fill, 88%);
+}
+
+.compactStatus {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ink-600);
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+/* ── FULL VARIANT (Project Page Header) ── */
+.fullContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.stageLabels {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.stageLabel {
+  text-decoration: none;
+  color: #1B4D36;
+  padding-bottom: 4px;
+  transition: opacity 400ms var(--ease-out);
+}
+
+.stageLabel:hover {
+  opacity: 0.8;
+}
+
+.stageComplete {
+  color: #1B4D36;
+}
+
+/* Current active stage in ink with 2px amber underline */
+.stageCurrent {
+  color: #14231B !important;
+  border-bottom: 2px solid #D9922B;
+}
+
+/* 4px rounded track (#E7DEC8) */
+.fullTrack {
+  margin-top: 14px;
+  width: 100%;
+  height: 4px;
+  background-color: #E7DEC8;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.fullFill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #1B4D36 0%, #2F7A55 65%, #D9922B 100%);
+  border-radius: 4px;
+  transition: width var(--dur-strip) var(--ease-out);
+}
+
+.inView .fullFill {
+  width: var(--target-fill, 88%);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .compactFill,
+  .fullFill {
+    transition: none !important;
+    width: var(--target-fill, 88%) !important;
+  }
+}

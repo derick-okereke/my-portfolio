@@ -1,0 +1,304 @@
+/* ContactPage.module.css — Redesigned Contact Section */
+
+.page {
+  position: relative;
+  padding-block: var(--s-16) var(--s-16);
+  background: var(--cream-50);
+  overflow: hidden;
+  text-align: center;
+}
+
+.asSection {
+  padding-block: var(--s-16) var(--s-16);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Staggered Entrance Animations ── */
+.animateItem {
+  width: 100%;
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.inView .animateItem {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.inView .animateItem:nth-child(1) { transition-delay: 0ms; }
+.inView .animateItem:nth-child(2) { transition-delay: 80ms; }
+.inView .animateItem:nth-child(3) { transition-delay: 160ms; }
+.inView .animateItem:nth-child(4) { transition-delay: 240ms; }
+.inView .animateItem:nth-child(5) { transition-delay: 320ms; }
+.inView .animateItem:nth-child(6) { transition-delay: 400ms; }
+
+/* ── Item 1: Eyebrow label ── */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-600, #4F6056);
+  margin-bottom: var(--s-2);
+}
+
+/* ── Item 2: Heading ── */
+.heading {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: clamp(2.75rem, 7vw, 5.25rem); /* ~84px on desktop */
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--ink-900);
+  margin-bottom: var(--s-3);
+}
+
+/* ── Item 3: Sentence ── */
+.sentence {
+  font-family: var(--font-body);
+  font-size: clamp(1.1rem, 1.8vw, 1.3125rem); /* ~21px */
+  color: var(--ink-600, #4F6056);
+  max-width: 44ch;
+  margin-inline: auto;
+  margin-bottom: var(--s-8);
+  line-height: 1.5;
+}
+
+/* ── Item 4: Email Row & Copy Button ── */
+.emailRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: var(--s-6);
+}
+
+.emailLink {
+  position: relative;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: clamp(1.25rem, 4.4vw, 3.125rem); /* ~50px on desktop */
+  color: var(--ink-900);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  padding-bottom: 6px;
+  transition: color 300ms var(--ease-out);
+  word-break: break-word;
+}
+
+/* Base amber underline guide */
+.emailLink::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(217, 146, 43, 0.25);
+  border-radius: 2px;
+}
+
+/* Animated 3px amber underline drawing left to right */
+.emailLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--amber-500);
+  border-radius: 2px;
+  transition: width 300ms var(--ease-out);
+}
+
+.emailLink:hover,
+.emailLink:focus-visible {
+  color: #1B4D36;
+}
+
+.emailLink:hover::after,
+.emailLink:focus-visible::after {
+  width: 100%;
+}
+
+.emailLink:focus-visible {
+  outline: 2px solid var(--amber-500);
+  outline-offset: 4px;
+}
+
+/* Copy pill button */
+.copyBtn {
+  background: #F0E7D2;
+  border-radius: 14px;
+  padding: 8px 18px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--forest-900);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 120ms var(--ease-out),
+    background 200ms var(--ease-out);
+}
+
+.copyBtn:hover {
+  background: #E8DDC2;
+}
+
+.copyBtn:active {
+  transform: scale(0.97);
+}
+
+.copyBtn:focus-visible {
+  outline: 2px solid var(--amber-500);
+  outline-offset: 4px;
+}
+
+.copyLabel {
+  display: inline-block;
+  transition: transform 180ms var(--ease-out), opacity 180ms var(--ease-out);
+}
+
+.copyLabelCopied {
+  color: #1B4D36;
+  animation: copiedRise 200ms var(--ease-out);
+}
+
+@keyframes copiedRise {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Item 5: Text Links Row ── */
+.socialNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-bottom: var(--s-6);
+}
+
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink-900);
+  text-decoration: none;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: color 200ms var(--ease-out);
+}
+
+.arrow {
+  display: inline-block;
+  font-size: 0.95em;
+  transition: transform 200ms var(--ease-out);
+}
+
+.textLink:hover,
+.textLink:focus-visible {
+  color: #1B4D36;
+}
+
+.textLink:hover .arrow,
+.textLink:focus-visible .arrow {
+  transform: translate(3px, -3px);
+}
+
+.textLink:focus-visible {
+  outline: 2px solid var(--amber-500);
+  outline-offset: 4px;
+}
+
+/* ── Item 6: Download CV Button ── */
+.cvRow {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--s-2);
+}
+
+.cvBtn {
+  display: inline-block;
+  padding: 0.78em 2em;
+  background: var(--forest-700);
+  color: var(--on-forest);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--radius-pill, 14px);
+  text-decoration: none;
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 200ms var(--ease-out),
+    box-shadow 200ms var(--ease-out),
+    background 200ms var(--ease-out);
+}
+
+.cvBtn:hover {
+  background: var(--forest-500);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.cvBtn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.cvBtn:focus-visible {
+  outline: 2px solid var(--amber-500);
+  outline-offset: 4px;
+}
+
+/* ── Accessibility: prefers-reduced-motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .animateItem {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .emailLink::after {
+    transition: none !important;
+  }
+
+  .arrow {
+    transition: none !important;
+  }
+
+  .cvBtn {
+    transition: background 200ms ease !important;
+  }
+
+  .cvBtn:hover {
+    transform: none !important;
+  }
+}

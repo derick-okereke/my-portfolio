@@ -1,0 +1,107 @@
+/* OneTaxCardGraphic.module.css */
+
+.graphicWrap {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 20%, #153828 0%, #0B2018 100%);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s-3);
+  overflow: hidden;
+  position: relative;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  width: 100%;
+  max-width: 480px;
+  align-items: center;
+  position: relative;
+}
+
+.step {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform var(--dur-hover) var(--ease-out);
+}
+
+.stepActive {
+  background: rgba(217, 146, 43, 0.15);
+  box-shadow: 0 0 16px -4px rgba(217, 146, 43, 0.5);
+  border-radius: 12px;
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.badge {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--on-forest);
+  opacity: 0.7;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.badgeActive {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--amber-500);
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.stepTitle {
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--on-forest);
+  line-height: 1.2;
+}
+
+.stepTitleActive {
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #FBDBA2;
+  line-height: 1.2;
+}
+
+.stepSub {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  color: color-mix(in srgb, var(--on-forest) 65%, transparent);
+  margin-top: 2px;
+  line-height: 1.2;
+}
+
+.stepSubActive {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  color: var(--amber-500);
+  margin-top: 2px;
+  line-height: 1.2;
+}
+
+.connector {
+  display: none; /* using clean grid items */
+}
+
+@media (max-width: 480px) {
+  .inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

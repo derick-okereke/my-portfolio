@@ -1,0 +1,54 @@
+/* NotFound.module.css */
+
+.wrap {
+  min-height: calc(100vh - var(--nav-h) - 120px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--s-8) var(--s-4);
+  gap: var(--s-3);
+}
+
+.code {
+  font-family: var(--font-head);
+  font-size: clamp(5rem, 20vw, 10rem);
+  font-weight: 800;
+  color: var(--cream-300);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  user-select: none;
+}
+
+.heading {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--ink-900);
+}
+
+.body {
+  font-size: 1rem;
+  color: var(--ink-600);
+  max-width: 36ch;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: var(--s-2);
+  padding: 0.65em 1.5em;
+  background: var(--forest-700);
+  color: var(--on-forest);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--radius-md);
+  transition:
+    background var(--dur-hover) var(--ease-out),
+    transform var(--dur-press) var(--ease-out);
+}
+.btn:hover {
+  background: var(--forest-500);
+}
+.btn:active {
+  transform: scale(0.97);
+}

@@ -1,0 +1,31 @@
+/* index.css — global page styles */
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* Development placeholder stubs (only rendered in DEV via component) */
+.placeholder {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.15em 0.5em;
+  background: rgba(217, 146, 43, 0.12);
+  border-radius: 4px;
+  color: #8c5810;
+  font-family: var(--font-body);
+  font-size: 0.8em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  vertical-align: middle;
+}
+.placeholder::before {
+  content: '⚠';
+  font-size: 0.9em;
+}

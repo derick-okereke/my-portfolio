@@ -1,0 +1,320 @@
+/* WorkTimeline.module.css */
+
+.workSection {
+  padding-block: var(--s-12) var(--s-16);
+  background-color: var(--cream-50);
+  border-top: 1px solid var(--cream-300);
+}
+
+.sectionHeader {
+  margin-bottom: var(--s-8);
+  max-width: 68ch;
+}
+
+.heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--ink-900);
+  letter-spacing: -0.03em;
+  margin-bottom: var(--s-2);
+}
+
+.subText {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--ink-600);
+  line-height: 1.5;
+}
+
+/* ── Timeline 4-column Grid ── */
+.timelineGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-4);
+  align-items: start;
+}
+
+.columnCard {
+  background: var(--cream-100);
+  border-radius: var(--radius-md);
+  padding: var(--s-3);
+  transition:
+    transform var(--dur-hover) var(--ease-out),
+    box-shadow var(--dur-hover) var(--ease-out),
+    background-color var(--dur-hover) var(--ease-out);
+  position: relative;
+}
+
+.columnCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px -10px rgba(11, 32, 24, 0.08);
+}
+
+.columnCard.expanded {
+  background: #ffffff;
+  box-shadow: 0 16px 32px -12px rgba(11, 32, 24, 0.12);
+  border: 1px solid var(--cream-300);
+}
+
+.triggerButton {
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  font: inherit;
+}
+
+.topRule {
+  width: 100%;
+  height: 2px;
+  background-color: var(--cream-300);
+  margin-bottom: var(--s-3);
+  transition: background-color var(--dur-hover) var(--ease-out);
+}
+
+.columnCard:hover .topRule {
+  background-color: var(--forest-700);
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--s-2);
+}
+
+.colNumber {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-600);
+  letter-spacing: 0.08em;
+}
+
+.expandIcon {
+  font-size: 1.25rem;
+  color: var(--forest-700);
+  line-height: 1;
+  font-weight: 600;
+}
+
+.projectName {
+  font-family: var(--font-head);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--ink-900);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: var(--s-3);
+  min-height: 2.5em;
+}
+
+.stripSlot {
+  margin-top: auto;
+  padding-top: var(--s-2);
+}
+
+/* ── Expanded Drawer ── */
+.expandedDrawer {
+  margin-top: var(--s-4);
+  padding-top: var(--s-4);
+  border-top: 1px dashed var(--cream-300);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  animation: expandCard 400ms var(--ease-out) forwards;
+}
+
+@keyframes expandCard {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.shortDesc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--ink-600);
+  line-height: 1.5;
+}
+
+.coverFrame {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--cream-300);
+  background: var(--cream-50);
+}
+
+.coverImg {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.visualDiagramPlaceholder {
+  background: var(--forest-950);
+  color: var(--on-forest);
+  border-radius: var(--radius-sm);
+  padding: var(--s-3);
+  text-align: center;
+}
+
+.flowBadge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--amber-500);
+  border: 1px solid var(--amber-500);
+  padding: 0.2em 0.5em;
+  border-radius: 2px;
+  margin-bottom: var(--s-1);
+}
+
+.actionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--s-2);
+}
+
+.caseStudyLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--forest-700);
+  text-decoration: none;
+  padding-block: 2px;
+}
+
+.caseStudyLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--amber-500);
+  transition: width var(--dur-hover) var(--ease-out);
+}
+
+.caseStudyLink:hover::after,
+.caseStudyLink:focus-visible::after {
+  width: 100%;
+}
+
+.linkArrow {
+  display: inline-block;
+  transition: transform var(--dur-hover) var(--ease-out);
+}
+
+.caseStudyLink:hover .linkArrow {
+  transform: translateX(3px);
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--ink-600);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 2px;
+}
+
+.closeBtn:hover {
+  color: var(--ink-900);
+  background: var(--cream-100);
+}
+
+/* ── More Projects Row ── */
+.moreProjectsRow {
+  margin-top: var(--s-8);
+  padding: var(--s-4);
+  background: var(--cream-100);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--cream-300);
+  display: flex;
+  gap: var(--s-4);
+  align-items: baseline;
+}
+
+.moreHeader {
+  flex-shrink: 0;
+}
+
+.moreLabel {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--forest-700);
+}
+
+.moreContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.moreTitle {
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--ink-900);
+}
+
+.moreDesc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--ink-600);
+  line-height: 1.5;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .timelineGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .projectName {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .timelineGrid {
+    grid-template-columns: 1fr;
+  }
+  .moreProjectsRow {
+    flex-direction: column;
+    gap: var(--s-2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .columnCard:hover {
+    transform: none;
+  }
+  .expandedDrawer {
+    animation: none;
+  }
+}
