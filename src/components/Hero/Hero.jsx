@@ -87,9 +87,9 @@ export default function Hero() {
             See my work
           </a>
           <a
-            href="/placeholder-cv.pdf"
+            href="/cv-derick-okereke.pdf"
             className={styles.cvLink}
-            download
+            download="cv-derick-okereke.pdf"
             aria-label="Download Derick's CV (PDF)"
           >
             Download CV

@@ -150,9 +150,9 @@ export default function ContactPage({ isSection = false }) {
         <div className={styles.animateItem}>
           <div className={styles.cvRow}>
             <a
-              href="/placeholder-cv.pdf"
+              href="/cv-derick-okereke.pdf"
               className={styles.cvBtn}
-              download
+              download="cv-derick-okereke.pdf"
               aria-label="Download Derick's CV (PDF)"
             >
               Download CV

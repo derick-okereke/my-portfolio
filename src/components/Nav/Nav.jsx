@@ -103,9 +103,9 @@ export default function Nav() {
 
         {/* CV download */}
         <a
-          href="/placeholder-cv.pdf"
+          href="/cv-derick-okereke.pdf"
           className={styles.cvBtn}
-          download
+          download="cv-derick-okereke.pdf"
           aria-label="Download Derick's CV (PDF)"
         >
           Download CV
@@ -138,9 +138,9 @@ export default function Nav() {
           <NavLink to="/about" className={styles.mobileLink} onClick={handleMenuLinkClick}>About</NavLink>
           <NavLink to="/#contact" className={styles.mobileLink} onClick={handleMobileContactClick}>Contact</NavLink>
           <a
-            href="/placeholder-cv.pdf"
+            href="/cv-derick-okereke.pdf"
             className={`${styles.mobileLink} ${styles.mobileCv}`}
-            download
+            download="cv-derick-okereke.pdf"
             onClick={handleMenuLinkClick}
           >
             Download CV
