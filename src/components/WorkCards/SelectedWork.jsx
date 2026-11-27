@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
+import { useWatchup } from '@watchupltd/react'
 import LifecycleStrip from '../LifecycleStrip/LifecycleStrip'
 import Placeholder from '../Placeholder/Placeholder'
 import { homeProjectOrder } from '../../data/projects'
 import styles from './SelectedWork.module.css'
 
 export default function SelectedWork() {
+  const watchup = useWatchup()
   return (
     <section id="work" className={styles.section} aria-labelledby="selected-work-title">
       <div className="wrap">
@@ -36,6 +38,7 @@ export default function SelectedWork() {
                   to={project.route}
                   className={styles.cardLink}
                   aria-label={`${project.title} — Read case study`}
+                  onClick={() => watchup.track('Project Click', { project: project.title })}
                 >
                   {/* Top Screenshot or Flow Graphic (rounded 20px) */}
                   <div className={`${styles.imageFrame} ${isOneTax ? styles.onetaxImageFrame : ''}`}>

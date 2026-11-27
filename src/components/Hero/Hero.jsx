@@ -1,10 +1,12 @@
 import { useRef } from 'react'
 import DotNetwork from '../DotNetwork/DotNetwork'
 import styles from './Hero.module.css'
+import { useWatchup } from '@watchupltd/react'
 
 export default function Hero() {
   const mouseRef = useRef({ x: null, y: null })
   const heroRef = useRef(null)
+  const watchup = useWatchup()
 
   const handleMouseMove = (e) => {
     if (window.innerWidth < 768) return
@@ -91,6 +93,7 @@ export default function Hero() {
             className={styles.cvLink}
             download="cv-derick-okereke.pdf"
             aria-label="Download Derick's CV (PDF)"
+            onClick={() => watchup.track('CV Download')}
           >
             Download CV
             <span className={styles.arrow} aria-hidden="true">→</span>
